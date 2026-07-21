@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bvoy5vwuaqopc"]
+
+[ext_resource type="Script" uid="uid://cxbqkcs4437dt" path="res://scenes/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://orrjv0ay286h" path="res://scenes/gun.tscn" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ueok"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(4.6205523e-06, 0.86801434, 0.8689926, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2ueok"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ueok"]
+radius = 0.3
+
+[node name="Player" type="CharacterBody3D" unique_id=2050083535]
+script = ExtResource("1_4flbx")
+
+[node name="Gun" parent="." unique_id=1736224218 instance=ExtResource("2_onrkg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6196173, 0.4, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=259802776]
+shape = SubResource("CapsuleShape3D_2ueok")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2052048515]
+material_override = SubResource("StandardMaterial3D_ig7tw")
+mesh = SubResource("CapsuleMesh_2ueok")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=809304067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=1068022941]
+shape = SubResource("SphereShape3D_2ueok")
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=996332697]

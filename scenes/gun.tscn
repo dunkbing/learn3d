@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://orrjv0ay286h"]
+
+[ext_resource type="Script" uid="uid://cwr5qd7dma3a4" path="res://scenes/gun.gd" id="1_dk5gl"]
+[ext_resource type="PackedScene" uid="uid://bwjrixhojmu27" path="res://assets/gun/gun.glb" id="2_kw0bs"]
+
+[sub_resource type="Animation" id="Animation_danae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nrmjy"]
+resource_name = "shoot"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.17453292, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40bau"]
+_data = {
+&"RESET": SubResource("Animation_danae"),
+&"shoot": SubResource("Animation_nrmjy")
+}
+
+[node name="Gun" type="Node3D" unique_id=1736224218]
+script = ExtResource("1_dk5gl")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1099537190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45799407, 0)
+
+[node name="gun" parent="Pivot" unique_id=449489575 instance=ExtResource("2_kw0bs")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.45799407, 0.022006005)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1094348201]
+libraries/ = SubResource("AnimationLibrary_40bau")
