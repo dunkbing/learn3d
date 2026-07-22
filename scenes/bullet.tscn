@@ -4,13 +4,14 @@
 [ext_resource type="Script" uid="uid://dchge2yh4822s" path="res://scenes/bullet.gd" id="1_y25gk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2ueok"]
-radius = 0.4
-height = 1.35
+radius = 0.2
+height = 0.65
 
 [node name="Bullet" type="Area3D" unique_id=751048675]
 script = ExtResource("1_y25gk")
 
 [node name="bullet" parent="." unique_id=1822554216 instance=ExtResource("1_mkf8s")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=433667372]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 9.835061e-09, -0.12499996)

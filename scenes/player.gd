@@ -21,6 +21,7 @@ func _unhandled_input(event: InputEvent) -> void:
         camera_pivot.rotate_x(-event.relative.y * mouse_sensitivity)
         # Clamp pitch so you can't flip over backwards.
         camera_pivot.rotation.x = clampf(camera_pivot.rotation.x, -1.2, 0.4)
+        gun.rotation.x = camera_pivot.rotation.x
 
     # Press Escape to free the mouse (handy while testing).
     if event.is_action_pressed("ui_cancel"):

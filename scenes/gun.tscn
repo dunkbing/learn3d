@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://orrjv0ay286h"]
 
-[ext_resource type="Script" uid="uid://cwr5qd7dma3a4" path="res://scenes/gun.gd" id="1_dk5gl"]
-[ext_resource type="PackedScene" uid="uid://bwjrixhojmu27" path="res://assets/gun/gun.glb" id="2_kw0bs"]
+[ext_resource type="Script" uid="uid://cwr5qd7dma3a4" path="res://scenes/gun.gd" id="1_og67c"]
+[ext_resource type="PackedScene" uid="uid://bwjrixhojmu27" path="res://assets/gun/gun.glb" id="2_gp1hk"]
 
 [sub_resource type="Animation" id="Animation_danae"]
 length = 0.001
@@ -41,13 +41,16 @@ _data = {
 }
 
 [node name="Gun" type="Node3D" unique_id=1736224218]
-script = ExtResource("1_dk5gl")
+script = ExtResource("1_og67c")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1099537190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45799407, 0)
 
-[node name="gun" parent="Pivot" unique_id=449489575 instance=ExtResource("2_kw0bs")]
+[node name="gun" parent="Pivot" unique_id=449489575 instance=ExtResource("2_gp1hk")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.45799407, 0.022006005)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1094348201]
 libraries/ = SubResource("AnimationLibrary_40bau")
+
+[node name="Muzzle" type="Marker3D" parent="." unique_id=1855944447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.74)
